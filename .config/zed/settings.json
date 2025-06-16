@@ -7,17 +7,23 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-  "icon_theme": "Catppuccin Mocha",
-  "telemetry": {
-    "metrics": false,
-    "diagnostics": false
+  "autosave": {
+    "after_delay": {
+      "milliseconds": 10000
+    }
   },
+  "buffer_font_size": 14,
   "ui_font_size": 16,
-  "buffer_font_size": 16,
-  "editor.wordWrap": false,
+  "icon_theme": "Catppuccin Mocha",
+  "restore_on_startup": "last_session",
+  "soft_wrap": "none",
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
   "theme": {
-    "mode": "system",
+    "dark": "One Dark",
     "light": "Catppuccin Mocha",
-    "dark": "One Dark"
+    "mode": "system"
   }
 }
