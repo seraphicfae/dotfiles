@@ -170,27 +170,44 @@ cat << "EOF"
 ╚═════╝  ╚═════╝    ╚═╝   ╚═╝     ╚═╝╚══════╝╚══════╝    ╚═╝╚═╝  ╚═══╝╚══════╝   ╚═╝   ╚═╝  ╚═╝╚══════╝╚══════╝
 EOF
 
-declare -a dotfile_paths=(".config" ".zen" ".icons" ".themes")
-
-# Prompt if the user wants to backup their dotfiles.
+# Prompt if the user wants to back up their dotfiles.
 while true; do
     read -n 1 -r -p "$(ask "Would you like to back up your existing dotfiles? [Y/n] ")" backup_dotfiles
     echo
     backup_dotfiles="${backup_dotfiles:-y}"
 
     if [[ "$backup_dotfiles" =~ ^[Yy]$ ]]; then
-        for folder in "${dotfile_paths[@]}"; do
-            target="$HOME/$folder"
-            backup="$HOME/${folder}.bak"
+        if [ -e "$HOME/.config" ]; then
+            info "Backing up $HOME/.config to $HOME/.config.bak"
+            mv "$HOME/.config" "$HOME/.config.bak"
+            okay "Backup of .config complete."
+        else
+            warn "$HOME/.config does not exist, skipping."
+        fi
 
-            if [ -e "$target" ]; then
-                info "Backing up $target to $backup"
-                mv "$target" "$backup"
-                okay "Backup of $folder complete."
-            else
-                warn "$target does not exist, skipping backup."
-            fi
-        done
+        if [ -e "$HOME/.zen" ]; then
+            info "Backing up $HOME/.zen to $HOME/.zen.bak"
+            mv "$HOME/.zen" "$HOME/.zen.bak"
+            okay "Backup of .zen complete."
+        else
+            warn "$HOME/.zen does not exist, skipping."
+        fi
+
+        if [ -e "$HOME/.icons" ]; then
+            info "Backing up $HOME/.icons to $HOME/.icons.bak"
+            mv "$HOME/.icons" "$HOME/.icons.bak"
+            okay "Backup of .icons complete."
+        else
+            warn "$HOME/.icons does not exist, skipping."
+        fi
+
+        if [ -e "$HOME/.themes" ]; then
+            info "Backing up $HOME/.themes to $HOME/.themes.bak"
+            mv "$HOME/.themes" "$HOME/.themes.bak"
+            okay "Backup of .themes complete."
+        else
+            warn "$HOME/.themes does not exist, skipping."
+        fi
         break
     elif [[ "$backup_dotfiles" =~ ^[Nn]$ ]]; then
         warn "Skipping backup of dotfiles."
@@ -206,20 +223,56 @@ while true; do
     echo
     copy_dotfiles="${copy_dotfiles:-y}"
 
-if [[ "$copy_dotfiles" =~ ^[Yy]$ ]]; then
-    for folder in "${dotfile_paths[@]}"; do
-        source="$DOTFILES_DIR/$folder"
-        destination="$HOME/$folder"
-        if [ -d "$source" ]; then
-            mkdir -p "$destination"
-            info "Copying contents of $source into $destination"
-            cp -rf "$source/"* "$destination/"
-            okay "Copied $folder to $destination"
+    if [[ "$copy_dotfiles" =~ ^[Yy]$ ]]; then
+        if [ -d "./dotfiles/.config" ]; then
+            mkdir -p "$HOME/.config"
+            info "Copying contents of ./dotfiles/.config into $HOME/.config"
+            cp -rf ./dotfiles/.config/* "$HOME/.config/"
+            okay "Copied .config"
         else
-            warn "Source folder $source does not exist, skipping."
+            warn "./dotfiles/.config does not exist, skipping."
         fi
-    done
-    break
+
+        # Copy .zen if it exists
+        if [ -d "./dotfiles/.zen" ]; then
+            mkdir -p "$HOME/.zen"
+            info "Copying contents of ./dotfiles/.zen into $HOME/.zen"
+            cp -rf ./dotfiles/.zen/* "$HOME/.zen/"
+            okay "Copied .zen"
+        else
+            warn "./dotfiles/.zen does not exist, skipping."
+        fi
+
+        # Copy .icons if it exists
+        if [ -d "./dotfiles/.icons" ]; then
+            mkdir -p "$HOME/.icons"
+            info "Copying contents of ./dotfiles/.icons into $HOME/.icons"
+            cp -rf ./dotfiles/.icons/* "$HOME/.icons/"
+            okay "Copied .icons"
+        else
+            warn "./dotfiles/.icons does not exist, skipping."
+        fi
+
+        # Copy .themes if it exists
+        if [ -d "./dotfiles/.themes" ]; then
+            mkdir -p "$HOME/.themes"
+            info "Copying contents of ./dotfiles/.themes into $HOME/.themes"
+            cp -rf ./dotfiles/.themes/* "$HOME/.themes/"
+            okay "Copied .themes"
+        else
+            warn "./dotfiles/.themes does not exist, skipping."
+        fi
+
+        # Copy .face if it exists
+        if [ -f "./dotfiles/.face" ]; then
+            info "Copying .face image to $HOME/.face"
+            cp -f ./dotfiles/.face "$HOME/.face"
+            okay "Copied .face image"
+        else
+            warn "./dotfiles/.face not found, skipping."
+        fi
+
+        break
     elif [[ "$copy_dotfiles" =~ ^[Nn]$ ]]; then
         SKIPPED_DOTFILES_COPY=1
         warn "Skipping dotfile copy. Nothing was copied."
@@ -228,6 +281,7 @@ if [[ "$copy_dotfiles" =~ ^[Yy]$ ]]; then
         warn "Please enter Y or N."
     fi
 done
+
 # ─────────── Services and Setup ───────────
 sleep 5
 clear
