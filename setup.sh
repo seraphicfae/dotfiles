@@ -101,10 +101,11 @@ EOF
 
 # Packages needed for dotfiles (and some that I use :3)
 required_packages=(
-    hyprland hyprlock hyprpicker xorg-xwayland qt5-wayland qt6-wayland gvfs gvfs-mtp mtpfs xdg-user-dirs networkmanager network-manager-applet
-    bluez bluez-utils blueman pavucontrol mpv amberol gimp eog obs-studio vesktop-bin zen-browser-bin zed keepassxc nautilus-open-any-terminal
-    noto-fonts-cjk noto-fonts-emoji noto-fonts-extra ttf-jetbrains-mono-nerd sddm sddm-theme-catppuccin waybar swww slurp grim wl-clipboard rofi
-    swaync nwg-look papirus-icon-theme starship zsh zoxide fzf fd mission-center cava kitty fastfetch
+    amberol bluez bluez-utils blueman cava eog fastfetch fd fzf gimp grim gvfs gvfs-mtp hyprland hyprlock hyprpicker keepassxc kitty
+    localsend mission-center mpv mtpfs nautilus-open-any-terminal network-manager-applet networkmanager noto-fonts-cjk noto-fonts-emoji
+    noto-fonts-extra nwg-look obs-studio papirus-icon-theme pavucontrol qt5-wayland qt6-wayland rofi sddm sddm-theme-catppuccin slurp
+    starship swaync swww ttf-jetbrains-mono-nerd vesktop-bin waybar wl-clipboard xdg-user-dirs xorg-xwayland zed zen-browser-bin zoxide zsh
+
 )
 
 # Filter out packages that are already installed
