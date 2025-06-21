@@ -7,28 +7,24 @@
 
 /*****----- Configuration -----*****/
 configuration {
-    modi:                       "drun,run,filebrowser";
+    modi:                       "drun";
     show-icons:                 true;
-    display-drun:               "APPS";
-    display-run:                "RUN";
-    display-filebrowser:        "FILES";
     drun-display-format:        "{name}";
 }
 
 /*****----- Global Properties -----*****/
 * {
-    font:                          "JetBrains Mono Nerd Font 10";
+    font:                        "JetBrains Mono Nerd Font 10";
     background:                  #1c1c1c;        /* dark gray background */
     background-alt:              #2b2b2b;        /* slightly lighter dark gray */
     foreground:                  #F8F8F2;        /* off-white text */
-    selected:                    #E694B4;        /* soft pink highlight */
+    selected:                    #FFD1DC;        /* soft pink highlight */
     active:                      #BD93F9;        /* purple-ish for active */
     urgent:                      #FF5555;        /* red-pink for urgent */
 }
 
 /*****----- Main Window -----*****/
 window {
-    transparency:                "real";
     location:                    center;
     anchor:                      center;
     fullscreen:                  false;
@@ -37,28 +33,33 @@ window {
     x-offset:                    0px;
     y-offset:                    0px;
     enabled:                     true;
-    border-radius:               0px;
+    border-radius:               50px;
     cursor:                      "default";
-    background-color:            @background;
-    padding:                     10px;
+    margin:                      0px;
+    padding:                     2px;
+    background-color:            @selected;
+    border-radius:               8px;
 }
 
 /*****----- Main Box -----*****/
 mainbox {
     enabled:                     true;
     spacing:                     0px;
-    background-color:            transparent;
+    margin:                      0px;
+    padding:                     8px;
+    background-color:            @background;
+    border-radius:               8px;
     orientation:                 horizontal;
     children:                    [ "imagebox", "listbox" ];
 }
 
 imagebox {
-    padding:                     20px;
+    padding:                     12px;
     background-color:            transparent;
     background-image:            url("~/.config/rofi/images/splash-img.png", height);
     orientation:                 vertical;
     children:                    [ "inputbar", "dummy", "mode-switcher" ];
-    border-radius: 15px;
+    border-radius:               15px;
 }
 
 listbox {
@@ -100,7 +101,7 @@ entry {
 
 /*****----- Mode Switcher -----*****/
 mode-switcher{
-    enabled:                     true;
+    enabled:                     false; /* set this to true if you want */
     spacing:                     20px;
     background-color:            transparent;
     text-color:                  @foreground;
@@ -129,7 +130,6 @@ listview {
     reverse:                     false;
     fixed-height:                true;
     fixed-columns:               true;
-    
     spacing:                     10px;
     background-color:            transparent;
     text-color:                  @foreground;

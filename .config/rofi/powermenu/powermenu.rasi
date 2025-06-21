@@ -2,7 +2,7 @@
  *
  * Author : Aditya Shakya (adi1090x)
  * Github : @adi1090x
- * 
+ *
  **/
 
 * {
@@ -10,7 +10,7 @@
     background:                  #1c1c1c;        /* dark gray background */
     background-alt:              #2b2b2b;        /* slightly lighter dark gray */
     foreground:                  #F8F8F2;        /* off-white text */
-    selected:                    #E694B4;        /* soft pink highlight */
+    selected:                    #FFD1DC;        /* soft pink highlight */
     active:                      #BD93F9;        /* purple-ish for active */
     urgent:                      #FF5555;        /* red-pink for urgent */
 }
@@ -27,7 +27,6 @@ USE_BUTTONS=YES
 
 /*****----- Main Window -----*****/
 window {
-    /* properties for window widget */
     transparency:                "real";
     location:                    center;
     anchor:                      center;
@@ -35,16 +34,12 @@ window {
     width:                       800px;
     x-offset:                    0px;
     y-offset:                    0px;
-
-    /* properties for all widgets */
     enabled:                     true;
     margin:                      0px;
-    padding:                     0px;
-    border:                      0px solid;
-    border-radius:               0px;
-    border-color:                @selected;
+    padding:                     2px;
+    background-color:            @selected;
+    border-radius:               8px;
     cursor:                      "default";
-    background-color:            @background;
 }
 
 /*****----- Main Box -----*****/
@@ -53,12 +48,11 @@ mainbox {
     spacing:                     15px;
     margin:                      0px;
     padding:                     30px;
-    border:                      0px solid;
-    border-radius:               0px;
-    border-color:                @selected;
-    background-color:            transparent;
+    background-color:            @background;
+    border-radius:               8px;
     children:                    [ "inputbar", "listview" ];
 }
+
 
 /*****----- Inputbar -----*****/
 inputbar {
@@ -136,7 +130,7 @@ listview {
     reverse:                     false;
     fixed-height:                true;
     fixed-columns:               true;
-    
+
     spacing:                     15px;
     margin:                      0px;
     padding:                     0px;
