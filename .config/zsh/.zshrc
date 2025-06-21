@@ -24,30 +24,18 @@ setopt hist_reduce_blanks
 setopt inc_append_history
 setopt share_history
 
-# ─── Widgets ────────────────────────────────────────────
-if [[ -o interactive ]]; then
-  fzf-cd() {
-    local dir
-    local zoxide_list fd_list combined
+# ─── Commands ────────────────────────────────────────────
+icd() {
+  local dir
+  dir=$(zoxide query -ls | awk '{$1=""; print substr($0,2)}' | \
+    fzf --height=40% --reverse --prompt="Select dir: " \
+        --preview 'ls -la {}' --preview-window=right:60%)
+  if [[ -n "$dir" ]]; then
+    cd "$dir" || echo "Failed to cd into '$dir'"
+  fi
+}
 
-    zoxide_list=$(zoxide query -ls 2>/dev/null)
-    fd_list=$(fd --type d --max-depth 3 --hidden --exclude .git . "$HOME" 2>/dev/null)
-    zoxide_paths=$(echo "$zoxide_list" | awk '{ print $2 }')
-    fd_only=$(comm -23 <(echo "$fd_list" | sort) <(echo "$zoxide_paths" | sort))
-    combined=$(printf "%s\n%s" "$zoxide_paths" "$fd_only")
-
-    dir=$(echo "$combined" | fzf --height=40% --reverse --border --prompt="📁 Jump to dir: ")
-
-    if [[ -n "$dir" ]]; then
-      cd "$dir"
-    fi
-
-    zle reset-prompt
-  }
-
-  zle -N fzf-cd
-  bindkey '^F' fzf-cd
-fi
+bindkey -s '^F' 'icd\n'
 
 # ─── Evals ────────────────────────────────────
 eval "$(starship init zsh)"
@@ -55,4 +43,4 @@ eval "$(zoxide init --cmd cd zsh)"
 
 # ─── Aliases ────────────────────────────────────
 alias fastfetch=' clear && fastfetch'
-alias vs='zeditor'
+alias zed='zeditor && exit'
