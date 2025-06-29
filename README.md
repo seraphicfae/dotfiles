@@ -33,7 +33,7 @@ cd hyprland-dotfiles
 paru -S amberol bluez bluez-utils blueman cava eog fastfetch fd ffmpegthumbnailer fzf gimp grim gvfs gvfs-mtp hyprland hyprlock hyprpicker keepassxc kitty
 localsend mission-center mpv mtpfs nautilus-open-any-terminal network-manager-appletnetworkmanager noto-fonts-cjk noto-fonts-emoji noto-fonts-extra nwg-look
 obs-studio papirus-icon-theme pavucontrol qt5-wayland qt6-wayland rofi sddm sddm-theme-catppuccin slurp starship swaync swww ttf-jetbrains-mono-nerd vesktop-bin
-waybar wl-clipboard xdg-user-dirs xorg-xwayland zed zen-browser-bin zoxide zsh && rm -rf ~/paru
+waybar wl-clipboard xdg-user-dirs xorg-xwayland zed ungoogled-chromium-bin zoxide zsh && rm -rf ~/paru
 ```
 ###### Psst, edit your /etc/pacman.conf for multilib so you can get steam
 
@@ -41,10 +41,9 @@ waybar wl-clipboard xdg-user-dirs xorg-xwayland zed zen-browser-bin zoxide zsh &
 ```
 cd hyprland-dotfiles
 cp -r .config/* ~/.config/
-mkdir -p ~/.icons ~/.themes ~/.zen
+mkdir -p ~/.icons ~/.themes
 cp -r .icons/* ~/.icons/
 cp -r .themes/* ~/.themes/
-cp -r .zen/* ~/.zen/
 ```
 
 #### Finalizing

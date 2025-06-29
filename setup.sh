@@ -104,7 +104,7 @@ required_packages=(
     amberol bluez bluez-utils blueman cava eog fastfetch fd ffmpegthumbnailer fzf gimp grim gvfs gvfs-mtp hyprland hyprlock hyprpicker keepassxc kitty localsend
     mission-center mpv mtpfs nautilus-open-any-terminal network-manager-applet networkmanager noto-fonts-cjk noto-fonts-emoji noto-fonts-extra nwg-look obs-studio
     papirus-icon-theme pavucontrol qt5-wayland qt6-wayland rofi sddm sddm-theme-catppuccin slurp starship swaync swww ttf-jetbrains-mono-nerd vesktop-bin waybar
-    wl-clipboard xdg-user-dirs xorg-xwayland zed zen-browser-bin zoxide zsh
+    wl-clipboard xdg-user-dirs xorg-xwayland zed ungoogled-chromium-bin zoxide zsh
 
 )
 
@@ -171,7 +171,7 @@ cat << "EOF"
 ╚═════╝  ╚═════╝    ╚═╝   ╚═╝     ╚═╝╚══════╝╚══════╝    ╚═╝╚═╝  ╚═══╝╚══════╝   ╚═╝   ╚═╝  ╚═╝╚══════╝╚══════╝
 EOF
 
-declare -a dotfile_paths=(".config" ".zen" ".icons" ".themes")
+declare -a dotfile_paths=(".config" ".icons" ".themes")
 
 # Prompt if the user wants to backup their dotfiles.
 while true; do
