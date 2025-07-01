@@ -1,4 +1,4 @@
-E### My somewhat minimal dotfiles for Hyprland
+### My somewhat minimal dotfiles for Hyprland
 
 Thanks to [LinuxMobile](https://github.com/linuxmobile) for the base config. \
 Thanks to [Catppuccin](https://github.com/catppuccin) for the amazing themes. \
