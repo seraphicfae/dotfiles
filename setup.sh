@@ -101,7 +101,7 @@ EOF
 
 # Packages needed for dotfiles (and some that I use :3)
 required_packages=(
-    amberol bluez bluez-utils blueman cava eog fastfetch fd ffmpegthumbnailer fzf gimp grim gvfs gvfs-mtp hyprland hyprlock hyprpicker keepassxc kitty localsend
+    amberol bluez bluez-utils blueman cava eog fastfetch fd ffmpegthumbnailer fzf gimp grim gvfs gvfs-mtp hyprland hyprlock hyprpicker keepassxc kitty localsend-bin
     mission-center mpv mtpfs nautilus-open-any-terminal network-manager-applet networkmanager noto-fonts-cjk noto-fonts-emoji noto-fonts-extra nwg-look obs-studio
     papirus-icon-theme pavucontrol qt5-wayland qt6-wayland rofi sddm sddm-theme-catppuccin slurp starship swaync swww ttf-jetbrains-mono-nerd vesktop-bin waybar
     wl-clipboard xdg-user-dirs xorg-xwayland zed ungoogled-chromium-bin zoxide zsh
@@ -128,7 +128,7 @@ if (( ${#required_packages[@]} > 0 )); then
         install_missing="${install_missing:-y}"
 
         if [[ "$install_missing" =~ ^[Yy]$ ]]; then
-            paru -S --noconfirm "${required_packages[@]}"
+            paru -S "${required_packages[@]}"
             okay "Missing packages installed."
             break
         elif [[ "$install_missing" =~ ^[Nn]$ ]]; then
