@@ -28,8 +28,8 @@ swww img "${WALLS[idx]}" \
   --transition-fps 60 \
   --transition-bezier 0.54,0,0.34,0.99
 
-# Copy the full image (any format) into cache
+# Copy current wallpaper into .cache
 cp "${WALLS[idx]}" "$CURRENT_WALL"
 
-# Advance index
+# Cycle-based wallpaper switching
 printf '%d' $(( (idx + 1) % ${#WALLS[@]} )) > "$STATE_FILE"
