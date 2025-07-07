@@ -221,13 +221,6 @@ if [[ "$copy_dotfiles" =~ ^[Yy]$ ]]; then
         fi
     done
 
-    if [ -f "$DOTFILES_DIR/.face" ]; then
-            cp "$DOTFILES_DIR/.face" "$HOME/.face"
-            okay "Copied .face image to home directory."
-        else
-            warn ".face image not found in dotfiles, skipping."
-    fi
-
     break
     elif [[ "$copy_dotfiles" =~ ^[Nn]$ ]]; then
         SKIPPED_DOTFILES_COPY=1
