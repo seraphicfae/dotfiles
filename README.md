@@ -5,8 +5,7 @@ Thanks to [Catppuccin](https://github.com/catppuccin) for the amazing themes. \
 Thanks to [Adi1090x](https://github.com/adi1090x/rofi/) for the incredible rofi config.
 
 ### Showcase
-[Watch the video](showcase/showcase.mp4)
-
+https://github.com/user-attachments/assets/9ceb3f87-fbb7-4cfc-ae17-1f36f82f40d5
 
 ### Run the installation script:
 ##### Don't run random scripts blindly.
