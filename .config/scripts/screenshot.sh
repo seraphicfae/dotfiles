@@ -1,4 +1,7 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+## Creator: Faye
+## Github: https://github.com/seraphicfae/dotfiles
 
 mkdir -p "$HOME/Pictures/Screenshots"
 filename="$HOME/Pictures/Screenshots/screenshot_$(date +%Y%m%d_%H%M%S).png"
