@@ -9,16 +9,22 @@ CURRENT_WALL="$HOME/.cache/current_wallpaper"
 
 mkdir -p "$(dirname "$STATE_FILE")"
 
-mapfile -t WALLS < <(find "$WALL_DIR" -type f | sort)
+# Get list of wallpapers sorted
+mapfile -t WALLS < <(find "$WALL_DIR" -type f \( -iname '*.png' -o -iname '*.jpg' -o -iname '*.jpeg' \) | sort)
 [ ${#WALLS[@]} -gt 0 ] || exit 1
 
+# Get current wallpaper as an index
 if [[ -r "$STATE_FILE" ]]; then
   idx=$(<"$STATE_FILE")
 else
   idx=0
 fi
 
+# Wrap around
 (( idx >= ${#WALLS[@]} )) && idx=0
+
+# Add +1 to the index
+idx=$(( (idx + 1) % ${#WALLS[@]} ))
 
 # Set wallpaper
 swww img "${WALLS[idx]}" \
@@ -28,8 +34,8 @@ swww img "${WALLS[idx]}" \
   --transition-fps 60 \
   --transition-bezier 0.54,0,0.34,0.99
 
-# Copy current wallpaper into .cache
+# Copy current wallpaper into cache
 cp "${WALLS[idx]}" "$CURRENT_WALL"
 
-# Cycle-based wallpaper switching
-printf '%d' $(( (idx + 1) % ${#WALLS[@]} )) > "$STATE_FILE"
+# Save updated index
+printf '%d' "$idx" > "$STATE_FILE"
