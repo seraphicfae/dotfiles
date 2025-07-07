@@ -5,17 +5,8 @@ Thanks to [Catppuccin](https://github.com/catppuccin) for the amazing themes. \
 Thanks to [Adi1090x](https://github.com/adi1090x/rofi/) for the incredible rofi config.
 
 ### Showcase
-<table>
-  <tr>
-    <td><img src="Screenshots/one.png"/></td>
-    <td><img src="Screenshots/two.png"/></td>
-  </tr>
-  <tr>
-    <td><img src="Screenshots/three.png"/></td>
-    <td><img src="Screenshots/four.png"/></td>
-  </tr>
-</table>
-<img src="Screenshots/waybar.png"/>
+[Watch the video](showcase/showcase.mp4)
+
 
 ### Run the installation script:
 ##### Don't run random scripts blindly.
