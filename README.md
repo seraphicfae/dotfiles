@@ -21,7 +21,7 @@ cd hyprland-dotfiles
 
 ```
 paru -S bluez bluez-utils blueman cava fastfetch fd ffmpegthumbnailer fzf gapless gimp grim gvfs gvfs-mtp hyprland hyprlock hyprpicker keepassxc kitty
-localsend mission-center mpv mtpfs nautilus-open-any-terminal network-manager-appletnetworkmanager noto-fonts-cjk noto-fonts-emoji noto-fonts-extra nwg-look
+localsend mission-center mpv mtpfs nautilus-open-any-terminal network-manager-applet networkmanager noto-fonts-cjk noto-fonts-emoji noto-fonts-extra nwg-look
 obs-studio papirus-icon-theme pavucontrol qt5-wayland qt6-wayland rofi sddm sddm-theme-catppuccin slurp starship swaync swww ttf-jetbrains-mono-nerd viewnior
 vesktop-bin waybar wl-clipboard xdg-user-dirs xorg-xwayland zed ungoogled-chromium-bin zoxide zsh && rm -rf ~/paru
 ```

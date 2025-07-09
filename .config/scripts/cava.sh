@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
-## Creator: Faye
-## Github: https://github.com/seraphicfae/dotfiles
+# Creator : Faye | https://github.com/seraphicfae/dotfiles
 
 cava -p ~/.config/cava/config-waybar | awk -F';' '{
         bars = ""

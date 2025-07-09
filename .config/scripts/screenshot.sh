@@ -1,13 +1,11 @@
 #!/usr/bin/env bash
 
-## Creator: Faye
-## Github: https://github.com/seraphicfae/dotfiles
+# Creator : Faye | https://github.com/seraphicfae/dotfiles
 
 mkdir -p "$HOME/Pictures/Screenshots"
 filename="$HOME/Pictures/Screenshots/screenshot_$(date +%Y%m%d_%H%M%S).png"
 lockfile="/tmp/screenshot.lock"
 
-# Prevent multiple screenshots
 if [[ -f "$lockfile" ]]; then
     notify-send " Screenshot in progress"
     exit 1
@@ -16,7 +14,6 @@ fi
 touch "$lockfile"
 trap 'rm -f "$lockfile"' EXIT
 
-# Actual logic
 take_screenshot() {
     case "$1" in
         area) grim -g "$(slurp)" "$filename" ;;
