@@ -11,20 +11,15 @@ mkdir -p "$CACHE_DIR"
 
 mapfile -t WALLPAPER_PATHS < <(find "$WALLPAPER_DIR" -type f \( -iname '*.png' -o -iname '*.jpg' -o -iname '*.jpeg' \) | sort)
 
-if [ ${#WALLPAPER_PATHS[@]} -eq 0 ]; then
-  notify-send "No wallpapers found in $WALLPAPER_DIR"
-  exit 1
-fi
+SELECTED_WALLPAPER=$(
+  for path in "${WALLPAPER_PATHS[@]}"; do
+    name=$(basename "$path")
+    printf '%s\x00icon\x1fthumbnail://%s\n' "$name" "$path"
+  done | rofi -dmenu -p "Select Wallpaper" -theme "$HOME/.config/rofi/wallpaper/wallpaper.rasi"
+)
 
-WALLPAPER_NAMES=()
-for path in "${WALLPAPER_PATHS[@]}"; do
-    WALLPAPER_NAMES+=("$(basename "$path")")
-done
-
-SELECTED_NAME=$(printf '%s\n' "${WALLPAPER_NAMES[@]}" | rofi -dmenu -p "Select Wallpaper" -theme "$HOME/.config/rofi/wallpaper/wallpaper.rasi")
-
-for i in "${!WALLPAPER_NAMES[@]}"; do
-    if [[ "${WALLPAPER_NAMES[$i]}" == "$SELECTED_NAME" ]]; then
+for i in "${!WALLPAPER_PATHS[@]}"; do
+    if [[ "$(basename "${WALLPAPER_PATHS[$i]}")" == "$SELECTED_WALLPAPER" ]]; then
         SELECTED_PATH="${WALLPAPER_PATHS[$i]}"
         SELECTED_IDX="$i"
         break
