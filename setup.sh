@@ -101,14 +101,18 @@ EOF
 
 # Packages needed for dotfiles (and some that I use :3)
 required_packages=(
-    bluez bluez-utils blueman cava fastfetch fd ffmpegthumbnailer fzf gapless gimp grim gvfs gvfs-mtp hyprland hyprlock hyprpicker keepassxc kitty localsend-bin
-    mission-center mpv mtpfs nautilus-open-any-terminal network-manager-applet networkmanager noto-fonts-cjk noto-fonts-emoji noto-fonts-extra nwg-look obs-studio
-    papirus-icon-theme pavucontrol qt5-wayland qt6-wayland rofi sddm sddm-theme-catppuccin slurp starship swaync swww ttf-jetbrains-mono-nerd viewnior vesktop-bin waybar
-    wl-clipboard xdg-user-dirs xorg-xwayland zed ungoogled-chromium-bin zoxide zsh
-
+    bluez bluez-utils blueman cava fastfetch fd ffmpegthumbnailer fzf g4music-git gimp grim gvfs gvfs-mtp hyprland hyprlock
+    hyprpicker kitty mission-center mpv mtpfs nautilus-open-any-terminal network-manager-applet networkmanager noto-fonts-cjk
+    noto-fonts-emoji noto-fonts-extra nwg-look obs-studio papirus-icon-theme pavucontrol qt5-wayland qt6-wayland rofi sddm
+    sddm-theme-catppuccin slurp starship swaync swww ttf-jetbrains-mono-nerd ungoogled-chromium-bin viewnior waybar wl-clipboard
+    xdg-desktop-portal xdg-desktop-portal-gtk xdg-desktop-portal-hyprland xdg-user-dirs xorg-xwayland zed zoxide zsh
 )
 
-# Filter out packages that are already installed
+optional_packages=(
+    jdk21-openjdk keepassxc localsend-bin npm nodejs ryujinx vesktop-bin
+)
+
+# Filter out required packages that are already installed
 required_packages=(
     $(for pkg in "${required_packages[@]}"; do
         if ! pacman -Qq "$pkg" &>/dev/null; then
@@ -120,7 +124,6 @@ required_packages=(
 if (( ${#required_packages[@]} > 0 )); then
     warn "The following packages are missing:"
     printf "%s\n" "${required_packages[@]}" | paste -sd " " - | fold -s -w 80
-
 
     while true; do
         read -n 1 -r -p "$(ask "Would you like to install them? [Y/n] ")" install_missing
@@ -158,6 +161,40 @@ else
         fi
     done
 fi
+
+# Filter out optional packages that are already installed
+optional_packages=(
+    $(for pkg in "${optional_packages[@]}"; do
+        if ! pacman -Qq "$pkg" &>/dev/null; then
+            echo "$pkg"
+        fi
+    done)
+)
+
+if (( ${#optional_packages[@]} > 0 )); then
+    while true; do
+        read -n 1 -r -p "$(ask "Would you like to install some optional packages? They are not required. [Y/n] ")" install_optional
+        echo
+        install_optional="${install_optional:-y}"
+
+        if [[ "$install_optional" =~ ^[Yy]$ ]]; then
+            warn "The following optional packages will be installed:"
+            printf "%s\n" "${optional_packages[@]}" | paste -sd " " - | fold -s -w 80
+
+            paru -S "${optional_packages[@]}"
+            okay "Optional packages installed."
+            break
+        elif [[ "$install_optional" =~ ^[Nn]$ ]]; then
+            info "Skipped installing optional packages."
+            break
+        else
+            warn "Please enter Y or N."
+        fi
+    done
+else
+    info "All optional packages are already installed or none are missing."
+fi
+
 # ─────────── Dotfile(s) Installation ───────────
 sleep 5
 clear
