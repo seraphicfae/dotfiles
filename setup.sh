@@ -109,7 +109,7 @@ required_packages=(
 )
 
 optional_packages=(
-    jdk21-openjdk keepassxc localsend-bin npm nodejs ryujinx vesktop-bin
+    flac jdk21-openjdk keepassxc localsend-bin networkmanager-openvpn npm nodejs ryujinx vesktop-bin python-pipx polkit-gnome
 )
 
 # Filter out required packages that are already installed
