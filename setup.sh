@@ -101,15 +101,18 @@ EOF
 
 # Packages needed for dotfiles (and some that I use :3)
 required_packages=(
-    bluez bluez-utils blueman cava fastfetch fd ffmpegthumbnailer fzf g4music-git gimp grim gvfs gvfs-mtp hyprland hyprlock
-    hyprpicker kitty mission-center mpv mtpfs nautilus-open-any-terminal network-manager-applet networkmanager noto-fonts-cjk
-    noto-fonts-emoji noto-fonts-extra nwg-look obs-studio papirus-icon-theme pavucontrol qt5-wayland qt6-wayland rofi sddm
-    sddm-theme-catppuccin slurp starship swaync swww ttf-jetbrains-mono-nerd ungoogled-chromium-bin viewnior waybar wl-clipboard
+    bluez bluez-utils blueman cava fastfetch fd ffmpegthumbnailer fzf grim gvfs gvfs-mtp hyprland hyprlock hyprpicker
+    kitty mission-center mpv mtpfs nautilus-open-any-terminal network-manager-applet networkmanager noto-fonts-cjk
+    noto-fonts-emoji noto-fonts-extra nwg-look obs-studio papirus-icon-theme pavucontrol qt5-wayland qt6-wayland rofi
+    sddm sddm-theme-catppuccin slurp starship swaync swww ttf-jetbrains-mono-nerd viewnior waybar wl-clipboard
     xdg-desktop-portal xdg-desktop-portal-gtk xdg-desktop-portal-hyprland xdg-user-dirs xorg-xwayland zed zoxide zsh
+
 )
 
 optional_packages=(
-    flac jdk21-openjdk keepassxc localsend-bin networkmanager-openvpn npm nodejs ryujinx vesktop-bin python-pipx polkit-gnome
+    bridge-utils dnsmasq ebtables edk2-ovmf flac g4music-git gimp guestfs-tools jdk21-openjdk keepassxc libvirt
+    localsend-bin networkmanager-openvpn nodejs npm osu-lazer-bin polkit-gnome python-pipx qemu-full qemu-img
+    ryujinx swtpm ungoogled-chromium-bin vesktop-bin virt-manager virt-viewer
 )
 
 # Filter out required packages that are already installed
