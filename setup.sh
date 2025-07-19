@@ -175,7 +175,7 @@ optional_packages=(
 
 if (( ${#optional_packages[@]} > 0 )); then
     while true; do
-        read -n 1 -r -p "$(ask "Would you like to install some optional packages? They are not required. [Y/n] ")" install_optional
+        read -n 1 -r -p "$(ask "Would you like to install some optional packages? These are for me. [Y/n] ")" install_optional
         echo
         install_optional="${install_optional:-y}"
 
