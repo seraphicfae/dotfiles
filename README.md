@@ -20,11 +20,11 @@ cd hyprland-dotfiles
 #### Dependencies
 
 ```
-paru -S bluez bluez-utils blueman cava fastfetch fd ffmpegthumbnailer fzf g4music-git gimp grim gvfs gvfs-mtp hyprland hyprlock
-hyprpicker kitty mission-center mpv mtpfs nautilus-open-any-terminal network-manager-applet networkmanager noto-fonts-cjk
-noto-fonts-emoji noto-fonts-extra nwg-look obs-studio papirus-icon-theme pavucontrol qt5-wayland qt6-wayland rofi sddm
-sddm-theme-catppuccin slurp starship swaync swww ttf-jetbrains-mono-nerd ungoogled-chromium-bin viewnior waybar wl-clipboard
-xdg-desktop-portal xdg-desktop-portal-gtk xdg-desktop-portal-hyprland xdg-user-dirs xorg-xwayland zed zoxide zsh && rm -rf ~/paru
+paru -S bluez bluez-utils blueman cava fastfetch ffmpegthumbnailer grim gvfs gvfs-mtp hyprland hyprlock hyprpicker kitty mission-center
+mpv mtpfs nautilus-open-any-terminal network-manager-applet networkmanager noto-fonts-cjk noto-fonts-emoji noto-fonts-extra nwg-look
+nushell obs-studio papirus-icon-theme pavucontrol qt5-wayland qt6-wayland rofi sddm sddm-theme-catppuccin slurp starship swaync swww
+ttf-jetbrains-mono-nerd viewnior waybar wl-clipboard xdg-desktop-portal xdg-desktop-portal-gtk xdg-desktop-portal-hyprland xdg-user-dirs
+xorg-xwayland zed && rm -rf ~/paru
 ```
 ###### Psst, edit your /etc/pacman.conf for multilib so you can get steam
 
@@ -42,8 +42,7 @@ cp -r .themes/* ~/.themes/
 sudo systemctl enable --now NetworkManager bluetooth
 sudo systemctl enable sddm
 echo -e "[Theme]\nCurrent=catppuccin-mocha" | sudo tee /etc/sddm.conf
-chsh -s /usr/bin/zsh
-export ZDOTDIR="$HOME/.config/zsh" > $HOME/.zshenv
+chsh -s /usr/bin/nu
 reboot
 ```
 
