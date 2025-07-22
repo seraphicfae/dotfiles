@@ -8,7 +8,7 @@ CURRENT_WALL="$HOME/.cache/current_wallpaper"
 
 mkdir -p "$(dirname "$STATE_FILE")"
 
-mapfile -t WALLS < <(find "$WALL_DIR" -type f \( -iname '*.png' -o -iname '*.jpg' -o -iname '*.jpeg' \) | sort)
+mapfile -t WALLS < <(find "$WALL_DIR" -type f \( -iname '*.png' -o -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.gif' \) | sort)
 [ ${#WALLS[@]} -gt 0 ] || exit 1
 
 if [[ -r "$STATE_FILE" ]]; then
@@ -24,8 +24,7 @@ swww img "${WALLS[idx]}" \
   --transition-type grow \
   --transition-pos center \
   --transition-duration 1.5 \
-  --transition-fps 60 \
-  --transition-bezier 0.54,0,0.34,0.99
+  --transition-fps 60
 
 cp "${WALLS[idx]}" "$CURRENT_WALL"
 

@@ -9,7 +9,7 @@ CURRENT_WALLPAPER="$CACHE_DIR/current_wallpaper"
 
 mkdir -p "$CACHE_DIR"
 
-mapfile -t WALLPAPER_PATHS < <(find "$WALLPAPER_DIR" -type f \( -iname '*.png' -o -iname '*.jpg' -o -iname '*.jpeg' \) | sort)
+mapfile -t WALLPAPER_PATHS < <(find "$WALLPAPER_DIR" -type f \( -iname '*.png' -o -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.gif' \) | sort)
 
 SELECTED_WALLPAPER=$(
   for path in "${WALLPAPER_PATHS[@]}"; do
@@ -34,6 +34,5 @@ if [ -n "$SELECTED_PATH" ]; then
         --transition-type grow \
         --transition-pos center \
         --transition-duration 1.5 \
-        --transition-fps 60 \
-        --transition-bezier 0.54,0,0.34,0.99
+        --transition-fps 60
 fi
