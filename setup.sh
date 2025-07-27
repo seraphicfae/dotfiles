@@ -13,6 +13,10 @@ WHITE="\e[37m"
 BOLD="\e[1m"
 RESET="\e[0m"
 
+STATE_FILE="$HOME/.cache/swww_idx"
+CURRENT_WALLPAPER="$HOME/.cache/current_wallpaper"
+FALLBACK_WALLPAPER="$HOME/.config/wallpapers/wallpaper_01.png"
+
 okay()  { echo -e "${BOLD}${GREEN}[ OK ]${RESET} $1"; }
 info()  { echo -e "${BOLD}${BLUE}[ .. ]${RESET} $1"; }
 ask()   { echo -e "${BOLD}${MAGENTA}[ ? ]${RESET} $1"; }
@@ -300,14 +304,31 @@ while true; do
         bash -c 'echo -e "[Theme]\nCurrent=catppuccin-mocha" | sudo tee /etc/sddm.conf'
         okay "Changed sddm theme."
 
-        if command -v nu &>/dev/null; then
-            if [[ "$SHELL" == "/usr/bin/nu" ]]; then
-                info "Nushell is already the default shell for $(whoami)."
+        info "Setting wallpaper..."
+        mkdir -p "$HOME/.cache"
+        cp -r $HOME/.config/wallpapers/wallpaper_01.png $HOME/.cache/current_wallpaper
+        swww img $HOME/.config/wallpapers/wallpaper_01.png
+        okay "Set wallpaper"
+
+        if command -v zsh &>/dev/null; then
+            if [[ "$SHELL" == "/usr/bin/zsh" ]]; then
+                info "Zsh is already the default shell for $(whoami)."
             else
-                info "Setting Nushell as the default shell for $(whoami)..."
-                chsh -s /usr/bin/nu "$(whoami)"
-                okay "Default shell changed to Nushell."
+                info "Setting Zsh as the default shell for $(whoami)..."
+                chsh -s /usr/bin/zsh "$(whoami)"
+                okay "Default shell changed to Zsh."
             fi
+
+            echo 'export ZDOTDIR="$HOME/.config/zsh"' > "$HOME/.zshenv"
+
+            mkdir -p "$HOME/.config/zsh"
+            if [[ ! -d "$HOME/.config/zsh/antidote" ]]; then
+                info "Downloading plugin manager..."
+                git clone --depth=1 https://github.com/mattmc3/antidote.git "$HOME/.config/zsh/antidote"
+            fi
+        else
+            warn "Zsh is not installed. Skipping shell setup."
+        fi
 
         break
     elif [[ "$enable_services" =~ ^[Nn]$ ]]; then
