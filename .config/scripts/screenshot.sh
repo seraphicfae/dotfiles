@@ -7,7 +7,7 @@ filename="$HOME/Pictures/Screenshots/screenshot_$(date +%Y%m%d_%H%M%S).png"
 lockfile="/tmp/screenshot.lock"
 
 if [[ -f "$lockfile" ]]; then
-    notify-send " Screenshot in progress"
+    notify-send "Screenshot in progress"
     exit 1
 fi
 
@@ -25,9 +25,9 @@ take_screenshot() {
         wl-copy < "$filename"
         paplay "/usr/share/sounds/freedesktop/stereo/camera-shutter.oga"
 
-        notify-send -i "$filename" "󰄀 Screenshot taken" "Saved as $(basename "$filename") and copied to clipboard"
+        notify-send -i "$filename" "Saved and copied as" "$(basename "$filename")"
     else
-        notify-send " Screenshot cancelled"
+        notify-send "Screenshot cancelled"
     fi
 }
 

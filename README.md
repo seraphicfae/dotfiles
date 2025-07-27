@@ -20,9 +20,9 @@ cd hyprland-dotfiles
 #### Dependencies
 
 ```
-paru -S bluez bluez-utils blueman cava fastfetch ffmpegthumbnailer grim gvfs gvfs-mtp hyprland hyprlock hyprpicker kitty mission-center
+paru -S bluez bluez-utils blueman cava fastfetch ffmpegthumbnailer grim gvfs gvfs-mtp hyprland hyprlock hyprpicker kitty mako mission-center
 mpv mtpfs nautilus-open-any-terminal network-manager-applet networkmanager noto-fonts-cjk noto-fonts-emoji noto-fonts-extra nwg-look
-nushell obs-studio papirus-icon-theme pavucontrol qt5-wayland qt6-wayland rofi sddm sddm-theme-catppuccin slurp starship swaync swww
+nushell obs-studio papirus-icon-theme pavucontrol qt5-wayland qt6-wayland rofi sddm sddm-theme-catppuccin slurp starship swww
 ttf-jetbrains-mono-nerd viewnior waybar wl-clipboard xdg-desktop-portal xdg-desktop-portal-gtk xdg-desktop-portal-hyprland xdg-user-dirs
 xorg-xwayland zed && rm -rf ~/paru
 ```
@@ -30,7 +30,7 @@ xorg-xwayland zed && rm -rf ~/paru
 
 #### Steps
 ```
-cd hyprland-dotfiles
+cd dotfiles
 cp -r .config/* ~/.config/
 mkdir -p ~/.icons ~/.themes
 cp -r .icons/* ~/.icons/
@@ -39,10 +39,10 @@ cp -r .themes/* ~/.themes/
 
 #### Finalizing
 ```
-sudo systemctl enable --now NetworkManager bluetooth
-sudo systemctl enable sddm
+sudo systemctl enable NetworkManager bluetooth sddm
 echo -e "[Theme]\nCurrent=catppuccin-mocha" | sudo tee /etc/sddm.conf
-chsh -s /usr/bin/nu
+chsh -s /usr/bin/zsh
+export ZDOTDIR="$HOME/.config/zsh
 reboot
 ```
 
