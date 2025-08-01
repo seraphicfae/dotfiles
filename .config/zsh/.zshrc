@@ -28,5 +28,4 @@ setopt share_history
 eval "$(starship init zsh)"
 
 # ─── Aliases ────────────────────────────────────
-alias fastfetch=' clear && fastfetch'
-alias zed='zeditor && exit'
+alias ff='clear && fastfetch'
