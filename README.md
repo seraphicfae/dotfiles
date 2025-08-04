@@ -50,11 +50,11 @@ reboot
 **My temperature module doesn’t load** \
 Default path is `/sys/class/hwmon/hwmon2/temp1_input`. Set it to your system's correct thermal zone.
 
-**My theme isn't applying to GTK4 apps? (Nautilus & Amberol)** \
+**My theme isn't applying to GTK4 apps?** \
 Try deleting the `~/.config/gtk-4.0 folder`, and set the theme via nwg-look.
 
 **MPRIS module is empty** \
 It only shows when media is playing.
 
-**My icons and text are not loading/gone?** \
+**My icons look weird/dont show** \
 With your package manager, download JetBrainsMono Nerd Font.
