@@ -56,5 +56,5 @@ Try deleting the `~/.config/gtk-4.0 folder`, and set the theme via nwg-look.
 **MPRIS module is empty** \
 It only shows when media is playing.
 
-**How can I set my resolution and refresh rate?** \
-Via Hyprland.conf: scroll down to the bottom and input your specifications.
+**My icons and text are not loading/gone?** \
+With your package manager, download JetBrainsMono Nerd Font.
