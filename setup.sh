@@ -103,8 +103,8 @@ required_packages=(
 )
 
 optional_packages=(
-    flac gapless jdk21-openjdk keepassxc localsend-bin networkmanager-openvpn nodejs npm osu-lazer-bin polkit-gnome
-    python-pipx ryujinx ungoogled-chromium-bin vesktop-bin
+    flac gapless jdk21-openjdk keepassxc networkmanager-openvpn nodejs npm mpris-discord-rpc osu-lazer-bin
+    polkit-gnome python-pipx ryujinx ungoogled-chromium-bin vesktop-bin
 )
 
 required_packages=(
@@ -309,6 +309,13 @@ while true; do
         cp -r $HOME/.config/wallpapers/wallpaper_01.png $HOME/.cache/current_wallpaper
         swww img $HOME/.config/wallpapers/wallpaper_01.png
         okay "Set wallpaper"
+
+        if command -v mpris-discord-rpc &>/dev/null; then
+            systemctl enable --now mpris-discord-rpc
+            info "Started Discord RPC for G4music"
+        else
+            debug "Mpris-discord-rpc not found!"
+        fi
 
         if command -v zsh &>/dev/null; then
             if [[ "$SHELL" == "/usr/bin/zsh" ]]; then
