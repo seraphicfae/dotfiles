@@ -1,0 +1,65 @@
+# mpris-discord-rpc configuration file
+
+# You can reset this file using the command:
+# mpris-discord-rpc --reset-config
+# Or you can manually copy the example config from repo:
+# https://github.com/patryk-ku/mpris-discord-rpc/blob/main/config.yaml
+
+# If you compiled binary by yourself, you may need to provide your Last.fm API key here.
+# Or if you use precompiled binary, you can override the default Last.fm API key.
+# You can easily get it from: https://www.last.fm/pl/api
+# lastfm_api_key: key_here
+
+# You can also disable Last.fm as a cover source by providing an empty string as the key.
+# lastfm_api_key: ""
+
+# Activity refresh rate in seconds (min 5)
+interval: 10
+
+# Select visible activity buttons (max 2) [possible values: yt, lastfm, listenbrainz, mprisUrl, shamelessAd]
+# button:
+#   - yt
+#   - lastfm
+
+# Uncomment and enter your nicknames for activity buttons
+# lastfm_name: "nickname"
+# listenbrainz_name: "nickname"
+
+# Select what will be displayed after "Listening to" (default: artist) [possible values: artist, track, none]
+# rpc_name: artist
+
+# Select the icon displayed next to the album cover (default playPause) [possible values: playPause, player, lastfmAvatar, none]
+small_image: playPause
+
+# Force a different player id and name to be displayed than the one actually used. "force_player_id" changes icon and "force_player_name" changes displayed text while hovering over the icon.
+# List of available icons: https://github.com/patryk-ku/mpris-discord-rpc?tab=readme-ov-file#the-icon-next-to-the-album-cover
+# force_player_id: "custom_player_id"
+# force_player_name: "Custom Player Name"
+
+# Prevent MPRIS artUrl to be used as album cover if cover is not available on Last.fm. Mainly for working with thumbnails from YouTube and other video sites.
+# Additionally, it also disables icon and player name replacement on YouTube if it detects a YouTube thumbnail link.
+disable_mpris_art_url: false
+
+# Only use the status from the following music players
+# Use -l, --list-players to get player exact name to use with this option
+# The order matters and the first is the most important.
+allowlist:
+  - "Gapless"
+
+# Will use the "watching" activity
+# Use -l, --list-players to get player exact name to use with this option
+# video_players:
+#   - "VLC Media Player"
+#   - "Chrome"
+
+# Hide the album name to decrease activity height
+hide_album_name: false
+
+# Only send activity when media is playing
+only_when_playing: false
+
+# Prevent MusicBrainz to be used as source of album cover if cover is not available on Last.fm
+disable_musicbrainz_cover: false
+
+# Disable cache (not recommended)
+disable_cache: false

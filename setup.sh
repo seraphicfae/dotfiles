@@ -295,23 +295,26 @@ while true; do
                 info "Enabling SDDM..."
                 sudo systemctl enable sddm
                 okay "SDDM enabled."
+                info "Changing sddm theme..."
+                bash -c 'echo -e "[Theme]\nCurrent=catppuccin-mocha" | sudo tee /etc/sddm.conf'
+                okay "Changed sddm theme."
             fi
         else
             warn "SDDM is not installed or its unit file is missing."
         fi
 
-        info "Changing sddm theme..."
-        bash -c 'echo -e "[Theme]\nCurrent=catppuccin-mocha" | sudo tee /etc/sddm.conf'
-        okay "Changed sddm theme."
-
-        info "Setting wallpaper..."
-        mkdir -p "$HOME/.cache"
-        cp -r $HOME/.config/wallpapers/wallpaper_01.png $HOME/.cache/current_wallpaper
-        swww img $HOME/.config/wallpapers/wallpaper_01.png
-        okay "Set wallpaper"
+        if command -v swww &>/dev/null; then
+            info "Setting wallpaper..."
+            mkdir -p "$HOME/.cache"
+            cp -r $HOME/.config/wallpapers/wallpaper_01.png $HOME/.cache/current_wallpaper
+            swww img $HOME/.config/wallpapers/wallpaper_01.png
+            okay "Set wallpaper"
+        else
+            debug "Swww not found!"
+        fi
 
         if command -v mpris-discord-rpc &>/dev/null; then
-            systemctl enable --now mpris-discord-rpc
+            mpris-discord-rpc enable
             info "Started Discord RPC for G4music"
         else
             debug "Mpris-discord-rpc not found!"
