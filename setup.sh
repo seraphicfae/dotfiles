@@ -165,9 +165,9 @@ optional_packages=(
 
 if (( ${#optional_packages[@]} > 0 )); then
     while true; do
-        read -n 1 -r -p "$(ask "These packages are simply for me. You do not have to install them. [y/N] ")" install_optional
+        read -n 1 -r -p "$(ask "Would you like to install them? [y/N] ")" install_missing
         echo
-        install_optional="${install_optional:-n}"
+        install_missing="${install_missing:-y}"
 
         if [[ "$install_optional" =~ ^[Nn]$ ]]; then
             warn "The following optional packages will be installed:"
@@ -307,7 +307,6 @@ while true; do
             info "Setting wallpaper..."
             mkdir -p "$HOME/.cache"
             cp -r $HOME/.config/wallpapers/wallpaper_01.png $HOME/.cache/current_wallpaper
-            swww img $HOME/.config/wallpapers/wallpaper_01.png
             okay "Set wallpaper"
         else
             debug "Swww not found!"
