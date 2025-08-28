@@ -103,9 +103,8 @@ required_packages=(
 )
 
 optional_packages=(
-    flac gapless gst-libav gst-plugins-good jdk21-openjdk keepassxc kid3 networkmanager-openvpn nodejs npm
-    mpris-discord-rpc osu-lazer-bin polkit-gnome python-pipx ryujinx transmission-gtk ungoogled-chromium-bin
-    vesktop-bin
+    flac gapless gst-libav gst-plugins-good jdk21-openjdk keepassxc kid3 nodejs npm mpris-discord-rpc osu-lazer-bin
+    polkit-gnome python-pipx ryujinx transmission-gtk ungoogled-chromium-bin vesktop-bin
 )
 
 required_packages=(
