@@ -165,14 +165,13 @@ optional_packages=(
 
 if (( ${#optional_packages[@]} > 0 )); then
     while true; do
-        read -n 1 -r -p "$(ask "Would you like to install them? [y/N] ")" install_missing
+        read -n 1 -r -p "$(ask "Install optional packages? (for me) [y/N] ")" install_missing
         echo
-        install_missing="${install_missing:-y}"
+        install_missing="${install_missing:-n}"
 
-        if [[ "$install_optional" =~ ^[Nn]$ ]]; then
+        if [[ "$install_optional" =~ ^[Yy]$ ]]; then
             warn "The following optional packages will be installed:"
             printf "%s\n" "${optional_packages[@]}" | paste -sd " " - | fold -s -w 80
-
             paru -S "${optional_packages[@]}"
             okay "Optional packages installed."
             break
