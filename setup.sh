@@ -167,8 +167,7 @@ if (( ${#optional_packages[@]} > 0 )); then
     while true; do
         read -n 1 -r -p "$(ask "Install optional packages? (for me) [y/N] ")" install_optional
         echo
-        install_optional="${install_optional
-        :-n}"
+        install_optional="${install_optional:-n}"
 
         if [[ "$install_optional" =~ ^[Yy]$ ]]; then
             warn "The following optional packages will be installed:"
