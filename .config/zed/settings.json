@@ -14,7 +14,11 @@
   },
   "buffer_font_size": 14,
   "ui_font_size": 16,
-  "icon_theme": "Catppuccin Mocha",
+  "icon_theme": {
+    "mode": "dark",
+    "light": "Catppuccin Mocha",
+    "dark": "Catppuccin Mocha"
+  },
   "restore_on_startup": "last_session",
   "soft_wrap": "none",
   "telemetry": {
@@ -22,8 +26,8 @@
     "metrics": false
   },
   "theme": {
-    "dark": "One Dark",
+    "dark": "Catppuccin Mocha",
     "light": "Catppuccin Mocha",
-    "mode": "system"
+    "mode": "dark"
   }
 }

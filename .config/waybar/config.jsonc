@@ -4,7 +4,7 @@
     "custom/separator",
     "cpu",
     "memory",
-    "temperature",
+    "temperature"
   ],
   "modules-center": ["custom/cava", "mpris"],
   "modules-right": [
@@ -14,8 +14,7 @@
     "pulseaudio#output",
     "custom/separator",
     "pulseaudio#input",
-    "custom/notifications",
-    "clock",
+    "clock"
   ],
   "hyprland/workspaces": {
     "active-only": false,
@@ -33,20 +32,20 @@
       "7": "7",
       "8": "8",
       "9": "9",
-      "10": "10",
-    },
+      "10": "10"
+    }
   },
   "cpu": {
-    "format": " {usage}%",
+    "format": " {usage}%",
     "interval": 1,
     "tooltip": false,
-    "on-click": "missioncenter",
+    "on-click": "missioncenter"
   },
   "memory": {
-    "format": " {used}/{total} GiB",
+    "format": " {used}/{total} GiB",
     "interval": 1,
     "tooltip": false,
-    "on-click": "missioncenter",
+    "on-click": "missioncenter"
   },
   "temperature": {
     "thermal-zone": 2,
@@ -56,15 +55,15 @@
     "format": "{icon} {temperatureC}°C",
     "format-icons": ["", "", "", "", ""],
     "tooltip": false,
-    "on-click": "missioncenter",
+    "on-click": "missioncenter"
   },
   "custom/cava": {
-    "exec": "sh ~/.config/scripts/cava.sh",
+    "exec": "~/.config/scripts/cava.sh",
     "on-click": "kitty -e cava",
     "format": "{}",
     "tooltip": false,
     "layer": "below",
-    "output": "all",
+    "output": "all"
   },
   "mpris": {
     "format": "{status_icon} {dynamic}",
@@ -76,29 +75,29 @@
       "paused": "",
       "playing": "",
       "stopped": "",
-      "default": "",
+      "default": ""
     },
-    "dynamic-order": ["title", "artist"],
+    "dynamic-order": ["title", "artist"]
   },
   "tray": {
     "icon-size": 20,
-    "spacing": 7,
+    "spacing": 7
   },
   "backlight": {
     "format": "{icon} {percent}%",
-    "format-icons": ["", "", "", "", "", "", "", "", ""],
+    "format-icons": ["", "", "", "", "", "", "", "", ""]
   },
   "battery": {
     "states": {
       "good": 95,
       "warning": 30,
-      "critical": 15,
+      "critical": 15
     },
     "format": "{icon}  {capacity}%",
     "format-charging": "{capacity}% ",
     "format-plugged": "{capacity}% ",
     "format-alt": "{icon} {time}",
-    "format-icons": ["", "", "", "", ""],
+    "format-icons": ["", "", "", "", ""]
   },
   "pulseaudio#output": {
     "format": "{icon} {volume}%",
@@ -112,11 +111,11 @@
       "phone": "",
       "portable": "",
       "car": "",
-      "default": ["", "", ""],
+      "default": ["", "", ""]
     },
     "on-click": "pavucontrol",
     "tooltip": true,
-    "scroll-step": 5,
+    "scroll-step": 5
   },
   "pulseaudio#input": {
     "format": "{format_source}",
@@ -126,16 +125,16 @@
     "on-scroll-down": "pactl set-source-volume @DEFAULT_SOURCE@ -5%",
     "max-volume": "100",
     "on-click-right": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
-    "on-click": "pavucontrol",
+    "on-click": "pavucontrol"
   },
   "clock": {
     "interval": 1,
     "format": " {:%H:%M:%S}",
     "tooltip": false,
-    "format-alt": "  {:%A, %B %d}",
+    "format-alt": "  {:%A, %B %d}"
   },
   "custom/separator": {
     "format": " • ",
-    "tooltip": false,
-  },
+    "tooltip": false
+  }
 }

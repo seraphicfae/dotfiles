@@ -64,20 +64,20 @@ run_cmd() {
 
 # Actions
 case "$(run_rofi)" in
-	$shutdown) 
-	run_cmd --shutdown 
+	$shutdown)
+	run_cmd --shutdown
 	;;
-	$reboot) 
-	run_cmd --reboot 
+	$reboot)
+	run_cmd --reboot
 	;;
 	$lock)
 		playerctl pause
 		hyprlock
 		;;
-	$suspend) 
-	run_cmd --suspend 
+	$suspend)
+	run_cmd --suspend
 	;;
-	$logout) 
-	run_cmd --logout 
+	$logout)
+	run_cmd --logout
 	;;
 esac
