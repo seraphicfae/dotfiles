@@ -28,8 +28,6 @@ cd hyprland-dotfiles
 
 ## Manual Install:
 
-<br>
-
 ### Dependencies
 
 ```bash
@@ -39,8 +37,6 @@ noto-fonts-emoji noto-fonts-extra nwg-look obs-studio papirus-icon-theme pavucon
 sddm sddm-theme-catppuccin slurp starship swww ttf-jetbrains-mono-nerd viewnior waybar wl-clipboard xdg-desktop-portal
 xdg-desktop-portal-gtk xdg-desktop-portal-hyprland xdg-user-dirs xorg-xwayland zed zsh && rm -rf ~/paru
 ```
-<br>
-
 
 #### Steps
 ```bash
@@ -50,8 +46,6 @@ mkdir -p ~/.icons ~/.themes
 cp -r .icons/* ~/.icons/
 cp -r .themes/* ~/.themes/
 ```
-
-<br>
 
 #### Finalizing
 ```bash
