@@ -24,8 +24,6 @@ cd hyprland-dotfiles
 
 ---
 
-<br>
-
 ## Manual Install:
 
 ### Dependencies
