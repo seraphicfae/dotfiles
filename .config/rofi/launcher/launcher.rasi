@@ -38,7 +38,7 @@ window {
     margin:                      0px;
     padding:                     2px;
     background-color:            @selected;
-    border-radius:               8px;
+    border-radius:               12px;
 }
 
 /*****----- Main Box -----*****/
@@ -48,7 +48,7 @@ mainbox {
     margin:                      0px;
     padding:                     8px;
     background-color:            @background;
-    border-radius:               8px;
+    border-radius:               12px;
     orientation:                 horizontal;
     children:                    [ "imagebox", "listbox" ];
 }
@@ -59,7 +59,7 @@ imagebox {
     background-image:            url("~/.config/rofi/launcher/splash-img.png", height);
     orientation:                 vertical;
     children:                    [ "inputbar", "dummy" ];
-    border-radius:               15px;
+    border-radius:               12px;
 }
 
 listbox {
