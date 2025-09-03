@@ -7,6 +7,6 @@ Encoding=UTF-8
 [X-GNOME-Metatheme]
 GtkTheme=Orchis-Pink-Dark
 MetacityTheme=Orchis-Pink-Dark
-IconTheme=Tela-circle-dark
-CursorTheme=Vimix-dark
+IconTheme=Papirus-Dark
+CursorTheme=BreezeX-RosePine-Linux
 ButtonLayout=close,minimize,maximize:menu

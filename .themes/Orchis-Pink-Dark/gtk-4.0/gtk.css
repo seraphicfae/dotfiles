@@ -248,8 +248,8 @@ gridview > child:selected {
 }
 
 gridview > child box {
-  border-spacing: 8px;
-  margin: 12px;
+  border-spacing: 2px;
+  margin: 3px;
 }
 
 coverflow cover {
@@ -8398,7 +8398,7 @@ toolbarview > .bottom-bar actionbar > revealer > box {
   background-color: transparent;
   color: inherit;
   box-shadow: none;
-  padding-top: 6px;
+  padding-top: 0;
 }
 
 toolbarview > .bottom-bar actionbar > revealer > box:backdrop {
@@ -8517,8 +8517,16 @@ read if you used those and something break with a version upgrade you're on your
 @define-color wm_title white;
 @define-color wm_unfocused_title rgba(255, 255, 255, 0.7);
 @define-color wm_highlight rgba(255, 255, 255, 0.1);
+@define-color wm_border #090909;
 @define-color wm_bg #2C2C2C;
 @define-color wm_unfocused_bg #3C3C3C;
+@define-color wm_button_icon white;
+@define-color wm_button_close_hover_bg #fd5f51;
+@define-color wm_button_close_active_bg #fc2714;
+@define-color wm_button_max_hover_bg #38c76a;
+@define-color wm_button_max_active_bg #2b9751;
+@define-color wm_button_min_hover_bg #fdbe04;
+@define-color wm_button_min_active_bg #c29102;
 /*
 FIXME this is really an API */
 @define-color content_view_bg #2C2C2C;
