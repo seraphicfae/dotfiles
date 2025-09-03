@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# Creator : Faye | https://github.com/seraphicfae/dotfiles
+
 set -e
 
 # ─────────── Theme and functions ───────────
@@ -165,7 +167,7 @@ optional_packages=(
 
 if (( ${#optional_packages[@]} > 0 )); then
     while true; do
-        read -n 1 -r -p "$(ask "Install optional packages? (for me) [y/N] ")" install_optional
+        read -n 1 -r -p "$(ask "These are for me and not needed. [y/N] ")" install_optional
         echo
         install_optional="${install_optional:-n}"
 
