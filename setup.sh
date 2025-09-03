@@ -15,10 +15,6 @@ WHITE="\e[37m"
 BOLD="\e[1m"
 RESET="\e[0m"
 
-STATE_FILE="$HOME/.cache/swww_idx"
-CURRENT_WALLPAPER="$HOME/.cache/current_wallpaper"
-FALLBACK_WALLPAPER="$HOME/.config/wallpapers/wallpaper_01.png"
-
 okay()  { echo -e "${BOLD}${GREEN}[ OK ]${RESET} $1"; }
 info()  { echo -e "${BOLD}${BLUE}[ .. ]${RESET} $1"; }
 ask()   { echo -e "${BOLD}${MAGENTA}[ ? ]${RESET} $1"; }
