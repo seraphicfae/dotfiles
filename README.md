@@ -1,5 +1,5 @@
 # My hyprland dotfiles
-v2.1.6
+v2.2.0
 
 Thanks to:
 - <u>[LinuxMobile](https://github.com/linuxmobile)</u> for the base config
